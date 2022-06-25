@@ -17,5 +17,11 @@ namespace HotelBooking.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<Hotel>().Property(e => e.Id).IsRequired();
+        }
+        public DbSet<Hotel> Hotels { get; set; }
     }
 }

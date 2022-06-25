@@ -1,5 +1,6 @@
 using HotelBooking.Data;
 using HotelBooking.Models;
+using HotelBooking.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +38,8 @@ namespace HotelBooking
 
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+
+            services.AddScoped<HotelService>();
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
