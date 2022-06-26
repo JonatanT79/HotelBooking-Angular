@@ -15,6 +15,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { AppRoutingModule } from './app-routing.module';
 import { HotelListComponent } from './components/hotel-list/hotel-list.component';
 import { PageNavigatorComponent } from './components/page-navigator/page-navigator.component';
+import { HotelService } from './services/hotel.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PageNavigatorComponent } from './components/page-navigator/page-navigat
     AppRoutingModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
+    HotelService
   ],
   bootstrap: [AppComponent]
 })

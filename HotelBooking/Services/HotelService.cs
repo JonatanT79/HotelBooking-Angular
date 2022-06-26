@@ -16,10 +16,16 @@ namespace HotelBooking.Services
             _context = context;
         }
 
-       public List<Hotel> GetHotels()
+        public List<Hotel> GetHotels()
         {
             var hotels = _context.Hotels.ToList();
             return hotels;
+        }
+
+        public Hotel GetHotelById(int id)
+        {
+            var hotel = _context.Hotels.FirstOrDefault(e => e.Id == id);
+            return hotel;
         }
     }
 }
