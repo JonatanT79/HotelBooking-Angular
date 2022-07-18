@@ -18,11 +18,11 @@ export class HotelService {
 
     return this.client.get<any>(this.baseHotelsUrl + this.getHotelsUrl);
   }
+  
   getHotelsById(hotelId: number): Observable<any> {
 
     let params = new HttpParams();
-    params.append('id', hotelId.toString());
-
+    params = params.append('hotelId', hotelId.toString());
 
     let options = {
       header: new HttpHeaders({'Content-Type': 'application/json'}),

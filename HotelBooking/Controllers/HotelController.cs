@@ -16,14 +16,21 @@ namespace HotelBooking.Controllers
             _hotelService = hotelService;
         }
 
+        [HttpGet]
         public ActionResult GetHotels()
         {
             var hotels = _hotelService.GetHotels();
             return Ok(hotels);
         }
-        public ActionResult GetHotelById(string id)
+
+        [HttpGet]
+        public ActionResult GetHotelById(string hotelId)
         {
-            int getIdParam = int.Parse(id);
+            int getIdParam = 0;
+            if(hotelId != null)
+            {
+                getIdParam = int.Parse(hotelId);
+            }
             var hotel = _hotelService.GetHotelById(getIdParam);
             return Ok(hotel);
         }
